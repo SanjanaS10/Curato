@@ -2,11 +2,11 @@ from transformers import CLIPProcessor, CLIPModel
 from PIL import Image
 import torch
 
-# Load model + processor once
+# Load model + processor
 model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
 processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
 
-# Candidate tags (can expand later)
+# Candidate tags
 CANDIDATE_TAGS = [
     "portrait", "landscape", "abstract", "surreal", "dark", "bright", 
     "melancholy", "joyful", "blue tones", "warm colors", "minimalist", "detailed"
@@ -24,3 +24,7 @@ def generate_tags(image_path):
     tags = [CANDIDATE_TAGS[i] for i in indices[0]]
 
     return tags
+
+def generate_caption(image_path):
+    # Placeholder caption - replace this with real captioning logic
+    return "This is a placeholder caption."
