@@ -6,4 +6,4 @@ numpy
 scikit-learn
 streamlit
 cloudinary
- 
+python-dotenv

@@ -6,7 +6,7 @@ from db_sqlite import init_db, save_metadata
 import os
 import json
 from cloudinary_utils import upload_to_cloudinary
-
+import os
 
 # 📦 Init DB + Load style model
 init_db()
@@ -19,9 +19,13 @@ st.title("🎨 Curato - AI Art Tagger")
 uploaded_file = st.file_uploader("Upload an artwork", type=["jpg", "png", "jpeg"])
 
 if uploaded_file:
+    os.makedirs("data", exist_ok=True)  # ✅ Make sure 'data/' exists
+
     temp_path = os.path.join("data", uploaded_file.name)
+
     with open(temp_path, "wb") as f:
         f.write(uploaded_file.getvalue())
+
 
     st.image(temp_path, caption="Uploaded Artwork", use_container_width=True)
 
